@@ -1,0 +1,32 @@
+﻿@model QLTT.Models.SinhVien
+
+
+<form asp-controller="Qltt" asp-action="TraCuuDiemSv" method="get">
+    <p>
+        Ma sinh vien: <input type="text" asp-for="Masv" />
+        <input type="submit" value="Filter" />
+    </p>
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sinh viên</th>
+            <th>Tổng điểm</th>
+            <th>Xếp loại</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (Model != null && ViewBag.KetQuaSinhVien.tongDiemTb != -1)
+            {
+                <tr>
+                    <td>@Model.Hotensv</td>
+                    <td>@ViewBag.KetQuaSinhVien.tongDiemTb</td>
+                    <td>@ViewBag.KetQuaSinhVien.xepLoai</td>
+                </tr>
+            }
+        }
+    </tbody>

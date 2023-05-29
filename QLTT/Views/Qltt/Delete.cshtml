@@ -1,0 +1,40 @@
+﻿@model QLTT.Models.HuongDan
+
+<h3>Ban co muon xoa?</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MasvNavigation.Hotensv)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MasvNavigation.Hotensv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MagvNavigation.Hotengv)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MagvNavigation.Hotengv)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MadtNavigation.Tendt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MadtNavigation.Tendt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ketqua)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ketqua)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Mahd" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+
+</div>

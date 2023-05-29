@@ -1,0 +1,86 @@
+﻿@model QLTT.Models.HuongDan
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MasvNavigation" class="control-label"></label>
+                <select asp-for="Masv" class="form-control">
+                    <option value="">-- Chon sinh vien --</option>
+                    @{
+                        List<SinhVien> sinhviens = ViewBag.sinhviens;
+                        foreach (var sinhvien in sinhviens)
+                        {
+                            if (sinhvien.Masv == Model.Masv)
+                            {
+                                <option selected="selected" value="@sinhvien.Masv">@sinhvien.Hotensv</option>
+                            }
+                            else
+                            {
+                                <option value="@sinhvien.Masv">@sinhvien.Hotensv</option>
+                            }
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Masv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MagvNavigation" class="control-label"></label>
+                <select asp-for="Magv" class="form-control">
+                    <option value="">-- Chon giao vien --</option>
+                    @{
+                        List<GiangVien> giangviens = ViewBag.giangviens;
+                        foreach (var giangvien in giangviens)
+                        {
+                            if (giangvien.Magv == Model.Magv)
+                            {
+                                <option selected="selected" value="@giangvien.Magv">@giangvien.Hotengv</option>
+                            }
+                            else
+                            {
+                                <option value="@giangvien.Magv">@giangvien.Hotengv</option>
+                            }
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Magv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MadtNavigation" class="control-label"></label>
+                <select asp-for="Madt" class="form-control">
+                    <option value="">-- Chon de tai --</option>
+                    @{
+                        List<DeTai> deTais = ViewBag.detais;
+                        foreach (var detai in deTais)
+                        {
+                            if (detai.Madt == Model.Madt)
+                            {
+                                <option selected="selected" value="@detai.Madt">@detai.Tendt</option>
+                            }
+                            else
+                            {
+                                <option value="@detai.Madt">@detai.Tendt</option>
+                            }
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Madt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Kết quả:
+                <input asp-for="Ketqua" class="form-control" value="@Model.Ketqua" />
+                <span asp-validation-for="Ketqua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

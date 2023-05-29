@@ -1,6 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using QLTT.Models;
+using QLTT.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<ThucTapContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("QLTTContext") ?? throw new InvalidOperationException("Connection string 'QLTTContext' not found.")));
+
 // Add services to the container.
+builder.Services.AddTransient<IQuanlythuctap, Quanlythuctap>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
